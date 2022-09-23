@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8.0.21
+    container_name: frip_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis
+    container_name: frip_redis
+    ports:
+      - "6379:6379"
+
+  
+
