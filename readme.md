@@ -1,6 +1,18 @@
 # Documentation
 
-## Step 1: Set env file
+## Description
+This is just a simple backend application for e-commerce. It will:
+* Create and authentication users
+* 
+
+To run the project, you need to run
+* MySQL
+* Redis
+
+
+## Project settings
+
+### Step 1: Set env file
 |Env name| Description|Example|
 |---|---|---|
 |SERVER_PORT|Application running port|:9000|
@@ -23,13 +35,13 @@
 Other environment variable will go there in this file
 
 
-## Step 2: Start mysql container
+### Step 2: Start mysql container
 
 ``` text
 make db-start
 ```
 
-## Step 3: Start application
+### Step 3: Start application
 ```text
 make go-server
 ```
