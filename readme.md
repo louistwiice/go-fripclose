@@ -4,6 +4,7 @@
 |Env name| Description|Example|
 |---|---|---|
 |SERVER_PORT|Application running port|:9000|
+|REDIS_BASE_URL|Redis url|redis://localhost:6379/|
 |DB_ROOT_PASSWORD| Database root passwod||
 |DB_NAME| Database name||
 |DB_USER| Database User||
