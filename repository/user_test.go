@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_Create(t *testing.T) {
+func Test_Create_User(t *testing.T) {
 	opts := []enttest.Option{
 		enttest.WithOptions(ent.Log(t.Log)),
 		enttest.WithMigrateOptions(migrate.WithGlobalUniqueID(true)),
@@ -31,7 +31,7 @@ func Test_Create(t *testing.T) {
 	assert.Nil(t, response_create)
 }
 
-func Test_Get(t *testing.T) {
+func Test_Get_User(t *testing.T) {
 	opts := []enttest.Option{
 		enttest.WithOptions(ent.Log(t.Log)),
 		enttest.WithMigrateOptions(migrate.WithGlobalUniqueID(true)),
@@ -82,7 +82,7 @@ func Test_Get(t *testing.T) {
 	assert.Equal(t, entity.ErrNotFound, err, "The email does not exist. So it should be not found")
 }
 
-func Test_List(t *testing.T) {
+func Test_List_User(t *testing.T) {
 	opts := []enttest.Option{
 		enttest.WithOptions(ent.Log(t.Log)),
 		enttest.WithMigrateOptions(migrate.WithGlobalUniqueID(true)),
@@ -108,7 +108,7 @@ func Test_List(t *testing.T) {
 	assert.Equal(t, userCreate.Email, response_list[0].Email)
 }
 
-func Test_UpdateInfo(t *testing.T) {
+func Test_UpdateInfo_User(t *testing.T) {
 	opts := []enttest.Option{
 		enttest.WithOptions(ent.Log(t.Log)),
 		enttest.WithMigrateOptions(migrate.WithGlobalUniqueID(true)),
@@ -131,7 +131,7 @@ func Test_UpdateInfo(t *testing.T) {
 	assert.Nil(t, err)
 }
 
-func Test_UpdatePassword(t *testing.T) {
+func Test_UpdatePassword_User(t *testing.T) {
 	opts := []enttest.Option{
 		enttest.WithOptions(ent.Log(t.Log)),
 		enttest.WithMigrateOptions(migrate.WithGlobalUniqueID(true)),
@@ -155,7 +155,7 @@ func Test_UpdatePassword(t *testing.T) {
 	assert.Nil(t, err)
 }
 
-func Test_Delete(t *testing.T) {
+func Test_Delete_User(t *testing.T) {
 	opts := []enttest.Option{
 		enttest.WithOptions(ent.Log(t.Log)),
 		enttest.WithMigrateOptions(migrate.WithGlobalUniqueID(true)),

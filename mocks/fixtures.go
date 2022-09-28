@@ -17,7 +17,7 @@ type fixtureMap struct {
 	User2Password 	string
 
 	CategoryRoot	*entity.Category
-	CategoryCloses	*entity.Category
+	CategoryClothes	*entity.Category
 	CategoryShoes	*entity.Category
 	CategoryTshirt	*entity.Category
 
@@ -105,7 +105,7 @@ func GenerateFixture() (f fixtureMap) {
 		ParentID: 0,
 	}
 
-	f.CategoryCloses = &entity.Category{
+	f.CategoryClothes = &entity.Category{
 		ID: 2,
 		Title: "Closes",
 		ParentID: 1,
@@ -124,7 +124,7 @@ func GenerateFixture() (f fixtureMap) {
 	}
 
 	f.CategoryList = append(f.CategoryList, f.CategoryRoot)
-	f.CategoryList = append(f.CategoryList, f.CategoryCloses)
+	f.CategoryList = append(f.CategoryList, f.CategoryClothes)
 	f.CategoryList = append(f.CategoryList, f.CategoryTshirt)
 	f.CategoryList = append(f.CategoryList, f.CategoryShoes)
 	
