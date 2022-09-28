@@ -15,7 +15,15 @@ type fixtureMap struct {
 	UserCreate2  	*entity.UserCreateUpdate
 	UserDisplay2 	*entity.UserDisplay
 	User2Password 	string
+
+	CategoryRoot	*entity.Category
+	CategoryCloses	*entity.Category
+	CategoryShoes	*entity.Category
+	CategoryTshirt	*entity.Category
+
 	UserList      	[]*entity.UserDisplay
+	CategoryList	[]*entity.Category
+
 	Server        	*gin.Engine
 }
 
@@ -90,6 +98,36 @@ func GenerateFixture() (f fixtureMap) {
 
 	f.UserList = append(f.UserList, f.UserDisplay1)
 	f.UserList = append(f.UserList, f.UserDisplay2)
+
+	f.CategoryRoot = &entity.Category{
+		ID: 1,
+		Title: "Men",
+		ParentID: 0,
+	}
+
+	f.CategoryCloses = &entity.Category{
+		ID: 2,
+		Title: "Closes",
+		ParentID: 1,
+	}
+
+	f.CategoryTshirt = &entity.Category{
+		ID: 3,
+		Title: "T shirt",
+		ParentID: 2,
+	}
+
+	f.CategoryShoes = &entity.Category{
+		ID: 4,
+		Title: "Shoes",
+		ParentID: 1,
+	}
+
+	f.CategoryList = append(f.CategoryList, f.CategoryRoot)
+	f.CategoryList = append(f.CategoryList, f.CategoryCloses)
+	f.CategoryList = append(f.CategoryList, f.CategoryTshirt)
+	f.CategoryList = append(f.CategoryList, f.CategoryShoes)
+	
 
 	gin.SetMode(gin.TestMode)
 	f.Server = gin.Default()

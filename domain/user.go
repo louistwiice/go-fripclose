@@ -34,6 +34,11 @@ type UserService interface {
 	IsAdminOrHasRight(id string) (bool, error)
 }
 
+type UserRightService interface {
+	IsAdminOrHasRight(id string) (bool, error)
+	GetByID(id string) (*entity.UserDisplay, string, error)
+}
+
 type UserController interface {
 	listUser(ctx *gin.Context)
 	getUser(ctx *gin.Context)
