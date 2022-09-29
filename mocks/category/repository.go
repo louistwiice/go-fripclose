@@ -27,13 +27,7 @@ func (m *MockCategoryRepo) List() ([]*entity.Category, error) {
 func (m *MockCategoryRepo) Create(data *entity.Category) error {
 	args := m.Called(data)
 
-	var r error
-	if rf, ok := args.Get(0).(func() error); ok {
-		r = rf()
-	} else {
-		r = args.Get(0).(error)
-	}
-	return r
+	return args.Error(0)
 }
 
 func (m *MockCategoryRepo) GetByID(id int) (*entity.Category, error) {
@@ -54,47 +48,23 @@ func (m *MockCategoryRepo) GetByID(id int) (*entity.Category, error) {
 func (m *MockCategoryRepo) UpdateTitle(data *entity.Category) error {
 	args := m.Called(data)
 
-	var r error
-	if rf, ok := args.Get(0).(func() error); ok {
-		r = rf()
-	} else {
-		r = args.Get(0).(error)
-	}
-	return r
+	return args.Error(0)
 }
 
 func (m *MockCategoryRepo) UpdateParent(data *entity.Category) error {
 	args := m.Called(data)
 
-	var r error
-	if rf, ok := args.Get(0).(func() error); ok {
-		r = rf()
-	} else {
-		r = args.Get(0).(error)
-	}
-	return r
+	return args.Error(0)
 }
 
 func (m *MockCategoryRepo) ClearParent(data *entity.Category) error {
 	args := m.Called(data)
 
-	var r error
-	if rf, ok := args.Get(0).(func() error); ok {
-		r = rf()
-	} else {
-		r = args.Get(0).(error)
-	}
-	return r
+	return args.Error(0)
 }
 
 func (m *MockCategoryRepo) Delete(data *entity.Category) error {
 	args := m.Called(data)
 
-	var r error
-	if rf, ok := args.Get(0).(func() error); ok {
-		r = rf()
-	} else {
-		r = args.Get(0).(error)
-	}
-	return r
+	return args.Error(0)
 }
