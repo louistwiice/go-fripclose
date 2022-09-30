@@ -1,4 +1,4 @@
-package category
+package service_category
 
 import (
 	"github.com/louistwiice/go/fripclose/domain"

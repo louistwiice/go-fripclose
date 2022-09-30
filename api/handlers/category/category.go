@@ -1,4 +1,4 @@
-package category
+package handler_category
 
 import (
 	"net/http"

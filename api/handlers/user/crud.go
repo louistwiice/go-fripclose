@@ -1,4 +1,4 @@
-package users
+package handler_user
 
 import (
 	"fmt"
@@ -21,28 +21,6 @@ func NewUserController(svc domain.UserService) *controller {
 		service: svc,
 	}
 }
-
-// Endpoint where user need to be authenicated
-func (c *controller) MakeUserHandlersWithoutAuth(app *gin.RouterGroup) {
-	app.GET("", c.listUsers)
-	app.GET(":id", c.getUser)
-}
-
-// Endoint whrer user does not need to be authenticated
-func (c *controller) MakeUserHandlersWithAuth(app *gin.RouterGroup) {
-	app.GET("", c.connectedUser)
-	app.PUT(":id", c.updateUser)
-	app.POST(":id/reset_password", c.updatePassword)
-	app.DELETE("delete_account/:id", c.deleteUser)
-
-	app.POST("image", c.uploadProfileImage)
-}
-
-/*
-**
-**
-**
-*/
 
 func (c *controller) listUsers(ctx *gin.Context) {
 	users, err := c.service.List()

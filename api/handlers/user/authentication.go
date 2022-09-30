@@ -1,4 +1,4 @@
-package users
+package handler_user
 
 import (
 	"net/http"
@@ -20,19 +20,6 @@ func NewAuthController(svc domain.AuthService) *authcontroller {
 		service: svc,
 	}
 }
-
-func (c *authcontroller) MakeAuthHandlers(app *gin.RouterGroup) {
-	app.POST("login", c.login)
-	app.POST("register", c.register)
-	app.POST("activation", c.activation)
-	app.POST("refresh", c.refreshToken)
-	app.GET("logout", c.logout)
-}
-
-/*
-**
-**
- */
 
 // Register/Create a new user or account
 func (c *authcontroller) register(ctx *gin.Context) {
