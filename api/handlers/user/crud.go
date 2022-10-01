@@ -190,8 +190,9 @@ func (c *controller) uploadProfileImage(ctx *gin.Context) {
 	clean_hash := strings.ReplaceAll(hashed[12:30], ".", "")
 	clean_hash = strings.ReplaceAll(clean_hash, "/", "")
 	clean_hash = strings.ReplaceAll(clean_hash, "\\", "")
+	filemane := strings.ReplaceAll(file.Filename, " ", "")
 
-	save_to := fmt.Sprintf("/media/users/%s__%s", clean_hash, file.Filename)
+	save_to := fmt.Sprintf("/media/users/%s__%s", clean_hash, filemane)
 	user.Picture = save_to
 	err = c.service.UploadPicture(user)
 	if err != nil {
